@@ -12,9 +12,9 @@ class VideoFileHandler(FileSystemEventHandler):
         if not event.is_directory and self.is_video_file(event.src_path):
             self.print_file_info("新增", event.src_path)
 
-    # def on_modified(self, event):
-    #     if not event.is_directory and self.is_video_file(event.src_path):
-    #         self.print_file_info("修改视频文件", event.src_path)
+    def on_modified(self, event):
+        if not event.is_directory and self.is_video_file(event.src_path):
+            self.print_file_info("修改视频文件", event.src_path)
 
     def on_deleted(self, event):
         if not event.is_directory and self.is_video_file(event.src_path):
